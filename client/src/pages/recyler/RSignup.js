@@ -1,29 +1,22 @@
 import logo from '../../assets/logo.png'
 import React, { useState } from 'react';
-import './login.css'
+import './rlogin.css'
 import axios from 'axios'
 
 function RSignup() {
-  const [name,setName] = useState('');  
-  const [number, setNumber] = useState('');
+  const [name_,setName] = useState('');  
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const fetchData = async () => {
-    try {
-        const response = await axios.get('api/recycler/signup');
-        setData(response.data);
-      } catch (error) {
-        setError(error);
-      }
-    }
+   
     console.log({
       email,
       password
     });
     // Add your login logic here
-  };
+  
 
   return (
     <div className="container" style={{ position: 'relative' }}>
@@ -36,7 +29,7 @@ function RSignup() {
           <input
               type="name"
               placeholder="Full Name"
-              value={email}
+              value={name_}
               onChange={(e) => setName(e.target.value)}
               className="input"
               required
@@ -70,6 +63,7 @@ function RSignup() {
       </div>
     </div>
   );
+  }
 }
 
 export default RSignup;

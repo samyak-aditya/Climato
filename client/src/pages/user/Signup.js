@@ -10,20 +10,13 @@ function Signup() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const loginForm = {
-        name :name_,
-        email:email,
-        password:password,
-      };
-    axios.put(
-        'api/user/signup',loginForm)
-    }
+   
     console.log({
       email,
       password
     });
     // Add your login logic here
-  };
+  
 
   return (
     <div className="container" style={{ position: 'relative' }}>
@@ -70,6 +63,6 @@ function Signup() {
       </div>
     </div>
   );
+  }
 }
-
 export default Signup;
