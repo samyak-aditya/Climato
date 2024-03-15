@@ -10,14 +10,6 @@ function Signup() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const loginForm = {
-        name :name_,
-        email:email,
-        password:password,
-      };
-    axios.put(
-        'api/user/signup',loginForm)
-    }
     console.log({
       email,
       password

@@ -36,3 +36,44 @@ export const signUp = async (req, res) => {
       res.status(500).send('Error registering user');
     }
   };
+  async function fetchLeaderboard() {
+    try {
+      const documents = await User.find().sort({ climatoscore: 1 }).exec();
+      return documents;
+    } catch (err) {
+      console.error('Error:', err);
+      throw err; // Rethrow the error
+    }
+  }
+  export const bookrecycle =async()=>{
+    const { pickupTime, eWasteType } = req.body;
+    let success = false;
+    try {
+      const newRecycle = new Recycles({
+        pickupTime,
+        eWasteType,
+        user: req.user.id,
+        bookingid: uuidv4(),
+      });
+      const savedRecycle = await newRecycle.save();
+      success = true;
+      req.user.climatoscore+=10;
+      res.json({ savedRecycle,success });
+    } catch (err) {
+      console.log(err.message);
+      res.status(500).send("Internal server error");
+    }
+  }
+  router.post("/bookedrequestcompletion", fetchuser, async (req, res) => {
+    const { bookingid } = req.body;
+    try {
+      const recycle = await Recycles.findOne({ bookingid });
+      if (!recycle) {
+        return res.status(404).send("Not Found");
+      }
+      res.json(recycle);
+    } catch (err) {
+      console.log(err.message);
+      res.status(500).send("Internal server error");
+    }
+  })
