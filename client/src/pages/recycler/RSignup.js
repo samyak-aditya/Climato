@@ -15,7 +15,7 @@ function RSignup() {
       password
     });
     // Add your login logic here
-  };
+  
 
   return (
     <div className="container" style={{ position: 'relative' }}>
@@ -62,6 +62,7 @@ function RSignup() {
       </div>
     </div>
   );
+  }
 }
 
 export default RSignup;
