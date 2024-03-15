@@ -1,4 +1,0 @@
-{
-"mongoURI": "mongodb+srv://Samyak:Cyber10@cluster0.t5hemdi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
-"jwtSecret": "your_secret_key"
-}
