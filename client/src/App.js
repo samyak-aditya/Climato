@@ -5,10 +5,12 @@ import Signup from "./pages/user/Signup.js"
 import RSignIn from "./pages/recycler/RLogin.js"
 import RSignup from "./pages/recycler/RSignup.js"
 import Landingpage from "./pages/landingpage.js";
-
+import NavBar from "./component/navbar.js";
 
 function App() {
   return (
+    <div className='bg-black '>
+    
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />}></Route>
@@ -18,6 +20,7 @@ function App() {
         <Route path="/landing" element={<Landingpage />}></Route>
       </Routes>
     </BrowserRouter>
+    </div>
   );
 }
 
