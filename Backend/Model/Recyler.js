@@ -1,17 +1,13 @@
-
 import { Schema, model } from 'mongoose';
 
-const userSchema = new Schema({
-  fullName: {
+const recyclerSchema = new Schema({
+  name: {
     type: String,
     required: true
   },
-  email: {
+  number: {
     type: String,
     required: true,
-    unique: true,
-    lowercase: true,
-    trim: true
   },
   password: {
     type: String,
@@ -20,5 +16,5 @@ const userSchema = new Schema({
 });
 
 
-const User = model('User', userSchema);
-export default User;
+const Recyler = model('User', recyclerSchema);
+export default Recyler;
