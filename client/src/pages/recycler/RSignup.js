@@ -1,16 +1,15 @@
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.png';
 import React, { useState } from 'react';
 import './rlogin.css'
 import axios from 'axios'
 
 function RSignup() {
-  const [name_,setName] = useState('');  
+  const [name,setName] = useState('');  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-   
     console.log({
       email,
       password
@@ -29,7 +28,7 @@ function RSignup() {
           <input
               type="name"
               placeholder="Full Name"
-              value={name_}
+              value={name}
               onChange={(e) => setName(e.target.value)}
               className="input"
               required
