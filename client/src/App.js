@@ -20,7 +20,7 @@ function App() {
 =======
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>I
-        <Route path="/recyler/rlogin" element={<RSignIn />}></Route>I
+        <Route path="/recycler/rlogin" element={<RSignIn />}></Route>I
         <Route path="recycler/rsignup" element={<RSignup />}></Route>I
 >>>>>>> b325a63be348d77733bdef55ac3966f2b7a061d1
       </Routes>

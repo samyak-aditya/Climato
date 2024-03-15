@@ -1,8 +1,8 @@
-import logo from '../assets/logo.png'
+import logo from '../../assets/logo.png'
 import React, { useState } from 'react';
 import './rlogin.css'
 
-function Login() {
+function RLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -55,4 +55,6 @@ function Login() {
   );
 }
 
-export default Login;
+
+
+export default RLogin;
