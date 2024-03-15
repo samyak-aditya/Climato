@@ -1,31 +1,23 @@
-// Import required modules
-
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Stack } from '@mui/material';
-import logo from '../assets/logo.png'
-import './login.css'
-
+import logo from '../../assets/logo.png'
 import React, { useState } from 'react';
-import './login.css';
+import './login.css'
+import axios from 'axios'
 
-function Login() {
+function Signup() {
+  const [name_,setName] = useState('');  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const loginForm = {
+        name :name_,
+        email:email,
+        password:password,
+      };
+    axios.put(
+        'api/user/signup',loginForm)
+    }
     console.log({
       email,
       password
@@ -41,6 +33,14 @@ function Login() {
         <div className="form-container">
           <h2 className="title">Sign in</h2>
           <form onSubmit={handleSubmit} className="form">
+          <input
+              type="name"
+              placeholder="Full Name"
+              value={name_}
+              onChange={(e) => setName(e.target.value)}
+              className="input"
+              required
+            />
             <input
               type="email"
               placeholder="Email Address"
@@ -63,8 +63,7 @@ function Login() {
             </div>
             <button type="submit" className="button">Sign In</button>
             <div className="link-container">
-              <a href="#" className="link">Forgot password?</a>
-              <a href="#" className="link">Don't have an account? Sign Up</a>
+              <a href="#" className="link">Already Registered? Sign In</a>
             </div>
           </form>
         </div>
@@ -73,4 +72,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
