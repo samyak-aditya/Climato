@@ -1,4 +1,5 @@
-import * as React from 'react';
+// Import required modules
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,116 +14,63 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Stack } from '@mui/material';
-import { dark} from '@mui/material/colors';
 import logo from '../assets/logo.png'
+import './login.css'
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="black" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import React, { useState } from 'react';
+import './login.css';
 
-export default function Login() {
+function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+      email,
+      password
     });
+    // Add your login logic here
   };
 
   return (
-    <Stack sx={{bgcolor:"#000000"}}>
-      <Grid container component="main" sx={{ height: '100vh', bgcolor: "black"}}>
-        <CssBaseline />
-        <Grid
-          item
-          xs={false}
-          sm={4}
-          md={7}
-          sx={{
-            backgroundImage: `url(${logo})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: 'black',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <Box
-            sx={{
-              my: 8,
-              backgroundColor: "000000",
-              mx: 4,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
-            </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 , bgcolor:"#e4f0e2"}}>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Sign In
-              </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
-              </Grid>
-              <Copyright sx={{ mt: 5 }} />
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
-      </Stack>
+    <div className="container" style={{ position: 'relative' }}>
+      <img className='bgimage' src={logo} style={{ position: 'absolute', zIndex: '-1', width: '100%', height: '100%', objectFit: 'cover' }} />
+      <div className="left-column"></div>
+      <div className="right-column" style={{opacity: '0.8'}}>
+        <div className="form-container">
+          <h2 className="title">Sign in</h2>
+          <form onSubmit={handleSubmit} className="form">
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="input"
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="input"
+              required
+            />
+            <div className="checkbox-container">
+              <input type="checkbox" id="remember" className="checkbox" />
+              <label htmlFor="remember" className="label">Remember me</label>
+            </div>
+            <button type="submit" className="button">Sign In</button>
+            <div className="link-container">
+              <a href="#" className="link">Forgot password?</a>
+              <a href="#" className="link">Don't have an account? Sign Up</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 }
+
+export default Login;
