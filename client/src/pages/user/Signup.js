@@ -4,13 +4,20 @@ import './login.css'
 import axios from 'axios'
 
 function Signup() {
-  const [name,setName] = useState('');  
+  const [name_,setName] = useState('');  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+    const loginForm = {
+        name :name_,
+        email:email,
+        password:password,
+      };
+    axios.put(
+        'api/user/signup',loginForm)
+    }
     console.log({
       email,
       password
@@ -29,7 +36,7 @@ function Signup() {
           <input
               type="name"
               placeholder="Full Name"
-              value={email}
+              value={name_}
               onChange={(e) => setName(e.target.value)}
               className="input"
               required
