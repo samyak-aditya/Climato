@@ -1,17 +1,18 @@
-const jwt = require("jsonwebtoken");
-const config = require("config");
-
-module.exports = function (req, res, next) {
+import jwt from "jsonwebtoken";
+import config from "config";
+const jwtSecret = "asdfgasdfg";
+export default function (req, res, next) {
   const token = req.header("x-auth-token");
   if (!token) {
     return res.status(401).json({ msg: "No token, authorization denied" });
   }
   try {
-    jwt.verify(token, config.get("jwtSecret"), (error, decoded) => {
+    jwt.verify(token, jwtSecret, (error, decoded) => {
       if (error) {
         return res.status(401).json({ msg: "Token is not valid" });
       } else {
         req.user = decoded.user;
+        console.log(decoded.user);
         next();
       }
     });
@@ -19,4 +20,4 @@ module.exports = function (req, res, next) {
     console.error("something wrong with auth middleware");
     res.status(500).json({ msg: "Server Error" });
   }
-};
+}

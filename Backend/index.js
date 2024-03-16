@@ -1,16 +1,17 @@
-const express = require("express");
-const connectDB = require("./config/db.js");
+import express, { json } from "express";
+import connectDB from "./config/db.js";
 const app = express();
+import router from "./Routes/routes.js";
+import cors from "cors"
 
 connectDB();
-
+app.use(cors());
 //Init Middleware
 app.use(express.json());
 
 
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
+app.use('/api',router) ;
+
 
 const PORT = process.env.PORT || 4000;
 

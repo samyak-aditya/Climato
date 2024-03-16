@@ -19,7 +19,7 @@ const userSchema = new Schema({
   climatoScore:{
     type: Number,
     default:0,
-  }
+  },
 });
 
 

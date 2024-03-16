@@ -1,13 +1,19 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from '../Model/User';
-import Recyler from '../Model/Recyler'
-import jwtSecret from '../config/default.json'
+import User from '../Model/User.js';
+import Recycler from '../Model/Recycler.js'
+//import jwtSecret from '../config/default.json'
 
+
+
+const jwtSecret ="asdfgasdfg"
 export const login = async (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
+  console.log(email+" "+password)
   try {
-    const user = await User.findOne({ username });
+    console.log("yo");
+    console.log();
+    const user = await User.findOne({ email:email });
     if (!user) {
       return res.status(400).send('User not found');
     }
@@ -24,9 +30,9 @@ export const login = async (req, res) => {
 export const crlogin = async (req, res) => {
   const { username, password } = req.body;
   try {
-    const  cr = await Recyler.findOne({ username });
+    const  cr = await Recycler.findOne({ username });
     if (!cr) {
-      return res.status(400).send('Recyler not found');
+      return res.status(400).send('Recycler not found');
     }
     const passwordMatch = await bcrypt.compare(password, cr.password);
     if (!passwordMatch) {

@@ -10,15 +10,15 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('/login', {
+      const response = await axios.post('http://localhost:4000/api/login', {
         email: email,
         password: password
       });
-      console.log('Login successful:', response.data);
-      // Add your logic after successful login, such as redirecting to another page
+      console.log('Signup successful:', response.data);
+      // Add your logic after successful signup, such as redirecting to another page
     } catch (error) {
-      console.error('Error logging in:', error);
-      // Handle login error, such as displaying an error message to the user
+      console.error('Error signing up:', error);
+      // Handle signup error, such as displaying an error message to the user
     }
   };
 

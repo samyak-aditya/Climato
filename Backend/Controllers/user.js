@@ -1,79 +1,89 @@
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import User from '../Model/User';
-
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import User from "../Model/User.js";
+import Booking from "../Model/Booking.js";
+const jwtSecret = "asdfgasdfg";
 export const signUp = async (req, res) => {
-    const { name, email, password } = req.body;
-    try {
-      const existingUser = await User.findOne({ name });
-      if (existingUser) {
-        return res.status(400).send('Username already exists');
-      }
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(password,salt);
-      const user = new User({
-        name,
-        email,
-        hashedPassword
-      });
-      await user.save();
-      const payload = {
-        user: {
-          id: user.id,
-        },
-      };
-      jwt.sign(
-        payload,
-        config.get("jwtSecret"),
-        { expiresIn: "5 days" },
-        (err, token) => {
-          if (err) throw err;
-          res.json({ token });
-        }
-      );
-      res.json({ token });
-    } catch {
-      res.status(500).send('Error registering user');
+  console.log('hgdjhg');
+  const { name, email, password } = req.body;
+  console.log(req.body)
+  try {
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).send("User already exists");
     }
-  };
-  async function fetchLeaderboard() {
-    try {
-      const documents = await User.find().sort({ climatoscore: 1 }).exec();
-      return documents;
-    } catch (err) {
-      console.error('Error:', err);
-      throw err; // Rethrow the error
-    }
+    //const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = new User({
+      name: name,
+      email: email,
+      password: hashedPassword,
+    });
+    console.log("dsds");
+    await user.save();
+
+    const payload = {
+      user: {
+        id: user.id,
+      },
+    };
+    console.log("sdf");
+    console.log(jwt);
+    const token = jwt.sign(payload, jwtSecret);
+    res.json(token);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error registering user");
   }
-  export const bookrecycle =async()=>{
-    const { pickupTime, eWasteType } = req.body;
-    let success = false;
-    try {
-      const newRecycle = new Recycles({
-        pickupTime,
-        eWasteType,
-        user: req.user.id,
-        bookingid: uuidv4(),
-      });
-      const savedRecycle = await newRecycle.save();
-      success = true;
-      req.user.climatoscore+=10;
-      res.json({ savedRecycle,success });
-    } catch (err) {
-      console.log(err.message);
-      res.status(500).send("Internal server error");
-    }
+};
+export const fetchLeaderboard=async(req,res)=> {
+  try {
+    const documents = await User.find().sort({ climatoscore: 1 }).exec();
+    res.status(200).json(documents.Stringify);
+  } catch (err) {
+    console.error("Error:", err);
+    res.status(500).send("Internal Server Error")
   }
-  router.post("/bookedrequestcompletion", fetchuser, async (req, res) => {
-    const { bookingid } = req.body;
-    try {
-      const recycle = await Recycles.findOne({ bookingid });
-      if (!recycle) {
-        return res.status(404).send("Not Found");
-      }
-      res.json(recycle);
-    } catch (err) {
-      console.log(err.message);
-      res.status(500).send("Internal server error");
+}
+export const bookrecycle = async (req, res) => {
+  const { pickupTime, eWasteType, pickupLocation, img } = req.body;
+  let success = "E-Waste Recycler Is On The Way";
+  try {
+    const booking = new Booking({
+      pickupTime,
+      eWasteType,
+      pickupLocation,
+      img: {
+        data: Buffer.from(img.data, 'base64'), // Assuming the image data is sent as base64 string
+        contentType: img.contentType
+      },
+      user: req.user.id,
+      status: success // Set default status
+    });
+    await booking.save();
+    success = true;
+    let upuser=req.user;
+    upuser.climatoscore+=10;
+    await upuser.save();
+    res.json({ booking, success });
+  } catch (err) {
+    console.log(err.message);
+    //console.log(req.body);
+    //console.log(req)
+    res.status(500).send("Internal server error");
+  }
+}
+export const cancelrecycle = async (req, res) => {
+  const { bookingid } = req.body;
+  try {
+    let booking = await Booking.findOne({ id:bookingid });
+    if (!booking) {
+      return res.status(404).send("Not Found");
     }
-  })
+    booking.status="Cancelled"
+    res.json({ "Success": "Recycle request cancelled successfully" });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send("Internal server error");
+  }
+};

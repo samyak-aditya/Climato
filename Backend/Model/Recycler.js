@@ -16,5 +16,5 @@ const recyclerSchema = new Schema({
 });
 
 
-const Recyler = model('User', recyclerSchema);
-export default Recyler;
+const Recycler = model('Recycler', recyclerSchema);
+export default Recycler;
