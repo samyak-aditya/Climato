@@ -8,9 +8,10 @@ import Landingpage from "./pages/landingpage.js";
 import NavBar from "./component/navbar.js";
 import { Dashboard } from "./pages/dashboard.js";
 import Recycle from "./pages/user/Recycle.js";
-import History from "./pages/user/History.js";
 import LeaderBoard from "./pages/LeaderBoard.js";
 import Learn from "./pages/Learn.js";
+import History from "./pages/History.js";
+import OrderForm from "./pages/OrderForm.js";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/history" element={<History/>}></Route>
         <Route path="/leaderboard" element={<LeaderBoard/>}></Route>
         <Route path="/learn" element={<Learn/>}></Route>
+        <Route path="/order" element={<OrderForm/>}></Route>
       </Routes>
     
     </div>
