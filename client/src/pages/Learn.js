@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Card from '../component/card';
 import trash from '../assets/earth (4).png'
 
-function Learning() {
+function Learn() {
     const [show, setShow] = useState(false)
 
     const blogs = [
@@ -66,4 +66,4 @@ function Learning() {
     )
 }
 
-export default Learning
+export default Learn
