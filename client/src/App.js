@@ -10,14 +10,13 @@ import NavBar from "./component/navbar.js";
 function App() {
   return (
     <div className='bg-black '>
-    
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>I
         <Route path="/recycler/rlogin" element={<RSignIn />}></Route>
         <Route path="recycler/rsignup" element={<RSignup />}></Route>
-        <Route path="/landing" element={<Landingpage />}></Route>
+        <Route path="/" element={<Landingpage />}></Route>
       </Routes>
     </BrowserRouter>
     </div>
