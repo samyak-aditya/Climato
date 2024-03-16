@@ -1,7 +1,7 @@
 import React from "react";
 import "./history.css";
 import logo from "../../assets/logo.png";
-import { Clock } from "@phosphor-icons/react";
+import { Clock } from "phosphor-react";
 const History = () => {
   return (
     <div class="card">

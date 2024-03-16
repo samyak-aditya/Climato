@@ -3,7 +3,7 @@ import './dashboard.css';
 import { ArrowUpRight } from 'phosphor-react';
 import { Link, useNavigate } from 'react-router-dom';
 import defaultProfilePic from '../assets/propic.png'; // Import your default profile picture
-import { getCurrentPosition } from 'react-geolocation'; // Import the getCurrentPosition function from your geolocation library
+//import { getCurrentPosition } from 'react-geolocation'; // Import the getCurrentPosition function from your geolocation library
 
 export const Dashboard = () => {
   const history = useNavigate();
