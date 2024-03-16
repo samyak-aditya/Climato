@@ -9,8 +9,11 @@ import Recycler from '../Model/Recycler.js'
 const jwtSecret ="asdfgasdfg"
 export const login = async (req, res) => {
   const { email, password } = req.body;
+  console.log(email+" "+password)
   try {
-    const user = await User.findOne({ email });
+    console.log("yo");
+    console.log();
+    const user = await User.findOne({ email:email });
     if (!user) {
       return res.status(400).send('User not found');
     }

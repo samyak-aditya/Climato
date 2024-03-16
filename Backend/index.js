@@ -7,7 +7,7 @@ import cors from "cors"
 connectDB();
 app.use(cors());
 //Init Middleware
-app.use(json());
+app.use(express.json());
 
 
 app.use('/api',router) ;

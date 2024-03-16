@@ -11,8 +11,13 @@ const bookingSchema = new Schema({
   eWasteType: { type: String, required: true },
   status:{
     type:String,
-    required:String,
-  }
+  },
+    img:
+    {
+        data: Buffer,
+        contentType: String
+    }
+  
 });
 
 const Booking = model("Booking", bookingSchema);

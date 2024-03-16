@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import config from "config";
-const jwtSecret="asdfgasdfg"
+const jwtSecret = "asdfgasdfg";
 export default function (req, res, next) {
   const token = req.header("x-auth-token");
   if (!token) {
@@ -12,6 +12,7 @@ export default function (req, res, next) {
         return res.status(401).json({ msg: "Token is not valid" });
       } else {
         req.user = decoded.user;
+        console.log(decoded.user);
         next();
       }
     });
@@ -19,4 +20,4 @@ export default function (req, res, next) {
     console.error("something wrong with auth middleware");
     res.status(500).json({ msg: "Server Error" });
   }
-};
+}
