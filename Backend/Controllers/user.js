@@ -4,12 +4,15 @@ import User from "../Model/User.js";
 import Booking from "../Model/Booking.js";
 const jwtSecret = "asdfgasdfg";
 export const signUp = async (req, res) => {
+  console.log('hgdjhg');
   const { name, email, password } = req.body;
+  console.log(req.body)
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).send("Username already exists");
+      return res.status(400).send("User already exists");
     }
+    //const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({
       name: name,
@@ -33,7 +36,7 @@ export const signUp = async (req, res) => {
     res.status(500).send("Error registering user");
   }
 };
-export const fetchLeaderboard=async()=> {
+export const fetchLeaderboard=async(req,res)=> {
   try {
     const documents = await User.find().sort({ climatoscore: 1 }).exec();
     res.status(200).json(documents.Stringify);
