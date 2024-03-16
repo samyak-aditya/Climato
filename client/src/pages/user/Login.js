@@ -1,6 +1,7 @@
 import logo from '../../assets/logo.png';
 import React, { useState } from 'react';
 import axios from 'axios';
+import './login.css'
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -26,11 +27,11 @@ function Login() {
       <img
         className="bgimage"
         src={logo}
-        style={{ position: 'absolute', zIndex: '-1', width: '100%', height: '100%', objectFit: 'cover' }}
+        style={{ position: 'absolute', zIndex: '0', width: '100%', height: '81.5vh',scale:"1.45" }}
         alt="Background"
       />
       <div className="left-column"></div>
-      <div className="right-column" style={{ opacity: '0.8' }}>
+      <div className="right-column" style={{ opacity: '0.8' , scale:"1.2" }}>
         <div className="form-container">
           <h2 className="title">Sign in</h2>
           <form onSubmit={handleSubmit} className="form">
@@ -56,9 +57,13 @@ function Login() {
                 Remember me
               </label>
             </div>
-            <button type="submit" className="button">
+            
+            <button type="submit" className="but">
+            <div className="button">
               Sign In
+              </div>
             </button>
+            
             <div className="link-container">
               <a href="#" className="link">
                 Forgot password?
