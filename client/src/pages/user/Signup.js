@@ -1,6 +1,7 @@
-import logo from '../../assets/logo.png';
+
 import React, { useState } from 'react';
 import axios from 'axios';
+import logo from '../../assets/logo.png'
 
 function Signup() {
   const [name_, setName] = useState('');
@@ -28,19 +29,19 @@ function Signup() {
       <img
         className="bgimage"
         src={logo}
-        style={{ position: 'absolute', zIndex: '-1', width: '100%', height: '100%', objectFit: 'cover' }}
+        style={{ position: 'absolute', zIndex: '0', width: '100%', height: '81.5vh',scale:"1.45" }}
         alt="Background"
       />
       <div className="left-column"></div>
-      <div className="right-column" style={{ opacity: '0.8' }}>
+      <div className="right-column" style={{ opacity: '0.8',scale:"1.2" }}>
         <div className="form-container">
-          <h2 className="title">Sign Up</h2>
+          <h2 className="title">Sign in</h2>
           <form onSubmit={handleSubmit} className="form">
-            <input
-              type="name"
-              placeholder="Full Name"
+          <input
+              type="text"
+              placeholder="Full name"
               value={name_}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               className="input"
               required
             />
@@ -52,6 +53,7 @@ function Signup() {
               className="input"
               required
             />
+            
             <input
               type="password"
               placeholder="Password"
@@ -67,11 +69,14 @@ function Signup() {
               </label>
             </div>
             <button type="submit" className="button">
-              Sign Up
+              Sign In
             </button>
             <div className="link-container">
               <a href="#" className="link">
-                Already Registered? Sign In
+                Forgot password?
+              </a>
+              <a href="#" className="link">
+                Don't have an account? Sign Up
               </a>
             </div>
           </form>
