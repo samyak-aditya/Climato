@@ -10,7 +10,7 @@ const Card = ({ image, read, description }) => {
             //   <p className="text-sm my-2 h-[65px]  ">{description}</p>
             // </div>
             // </div>
-            <div className=" flex-col relative justify-between  p-2 w-[90%] md:w-[250px]  my-3 md:my-0 md:mx-3 cursor-pointer hover:bg-black hover:text-white  h-56 rounded-3xl">
+            <div className=" flex-col relative justify-between  p-2 w-[100%] md:w-[400px] h-[300px]  my-3 md:my-0 md:mx-3 cursor-pointer hover:bg-black hover:text-white  h-56 rounded-3xl">
       
       <p style={{
       
@@ -20,6 +20,7 @@ const Card = ({ image, read, description }) => {
         textAlign:"right",
         position:"absolute",
         marginTop:"7rem",
+        marginLeft:"2rem",
         fontSize:"2rem",
         display: "flex",
         justifyContent:"space-evenly",
@@ -30,8 +31,8 @@ const Card = ({ image, read, description }) => {
       }}>{read}</p>
     
       
-      <img src={image} className="h-[204px] w-[282px] rounded-lg"></img>
-      <p className=" mt-4  w-full text-md bottom-3 left-3 absolute text-white">{description}</p>
+      <img src={image} className="h-[294px] w-[400px]  rounded-lg"></img>
+      <p className=" mt-4 m-2  w-full text-md bottom-3 left-3 absolute text-white">{description}</p>
     </div>
         );
       };

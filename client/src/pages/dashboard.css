@@ -1,0 +1,27 @@
+.grid-item1{
+    background-color: brown;
+}
+
+.grid-item2 {
+    background-color: rgb(212, 226, 19);
+    grid-column: span 2; /* Make grid item 2 span across 2 columns */
+}
+
+.grid-item3 {
+    background-color: rgb(164, 0, 123);
+    grid-column: 1 / span 2; /* Make grid item 3 start from column 1 and span 2 columns */
+}
+
+
+.grid-item4{
+    background-color: rgb(32, 3, 162);
+}
+
+
+
+.grid-container{
+    display: grid;
+  grid-template-columns: auto auto auto;
+  height: 100vh;
+   border-radius: 20px;
+}

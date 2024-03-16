@@ -1,7 +1,7 @@
 import React from 'react';
 import './landingpage.css'; // Import CSS file for styling
-import earth from '../assets/earth (1).png';
-import fire from '../assets/fire.jpeg'; 
+import earth from '../assets/space.png';
+import fire from '../assets/fire2.jpeg'; 
 import colorful from '../assets/colorful.jpeg'; // Import CSS file for styling
 import leaf from '../assets/earth (3).png'; // Import CSS file for styling
 import desert from '../assets/earth.png'; // Import CSS file for styling
@@ -13,7 +13,7 @@ function Landingpage() {
     <div>
     <div className="text-white h-full flex p-5 ">
       <section
-        className="w-screen  bg-center bg-cover bg-no-repeat  h-96  rounded-3xl  relative "
+        className="w-screen  bg-center bg-cover bg-no-repeat   h-96  rounded-3xl  relative "
         style={{
           backgroundImage: `url(${earth})`,
         }}
@@ -31,7 +31,7 @@ function Landingpage() {
     </div>
     <div className="text-white h-full flex p-2 w-full rounded-3xl ">
       <section
-        className="w-full  bg-center bg-cover bg-no-repeat bg-fixed h-96  rounded-3xl relative"
+        className="w-full   bg-center bg-cover bg-no-repeat  h-96  rounded-3xl relative rigth-10"
         style={{
           backgroundImage: `url(${fire})`,
         }}

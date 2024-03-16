@@ -6,6 +6,7 @@ import RSignIn from "./pages/recycler/RLogin.js"
 import RSignup from "./pages/recycler/RSignup.js"
 import Landingpage from "./pages/landingpage.js";
 import NavBar from "./component/navbar.js";
+import { Dashboard } from "./pages/dashboard.js";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/recycler/rlogin" element={<RSignIn />}></Route>
         <Route path="recycler/rsignup" element={<RSignup />}></Route>
         <Route path="/landing" element={<Landingpage />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}></Route>
       </Routes>
     </BrowserRouter>
     </div>
