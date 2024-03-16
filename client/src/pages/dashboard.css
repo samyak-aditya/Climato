@@ -1,5 +1,6 @@
 .grid-item1{
     background-color: brown;
+    z-index: 66;
 
 }
 
@@ -10,28 +11,50 @@
     background-size: cover;
     border-radius: 50px;
     display: flex;
-    opacity: 0.4;
+   
    align-items:end;
    justify-content: start;
    color: rgb(255, 255, 255);
    font-size: 70px;
+   z-index: 66;
    
 
 }
 
 
 
-
+a{
+    position: relative;
+    z-index: -4;
+}
 
 
 .grid-item3 {
-    background-color: rgb(164, 0, 123);
-    grid-column: 1 / span 2; /* Make grid item 3 start from column 1 and span 2 columns */
+    display: flex;
+    opacity: 0.4;
+   align-items:end;
+   color: rgb(255, 255, 255);
+   font-size: 70px;
+   justify-content: start;
+    grid-column: 1/2 ; /* Make grid item 3 start from column 1 and span 2 columns */
+    background-image: url('../assets/waterfall.png');
+    z-index: 66;
 }
 
 
 .grid-item4{
-    background-color: rgb(32, 3, 162);
+    background-color: rgb(212, 226, 19);
+    grid-column: span 2; /* Make grid item 2 span across 2 columns */
+    background-image: url('../assets/maps.jpg');
+    background-size: cover;
+    border-radius: 50px;
+    display: flex;
+    
+   align-items:end;
+   justify-content: start;
+   color: rgb(255, 255, 255);
+   font-size: 70px;
+   z-index: 66;
 }
 
 
@@ -41,4 +64,30 @@
   grid-template-columns: auto auto auto;
   height: 100vh;
    border-radius: 20px;
+   z-index: 66;
 }
+
+.leader{
+    display: grid;
+    
+  grid-template-columns: auto auto;
+}
+
+/* Add this CSS to your dashboard.css file */
+
+/* Style for the profile picture */
+.profile-pic {
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    border-radius: 50%; /* Make it circular */
+    margin-bottom: 10px; /* Add some space below the profile picture */
+  }
+  
+  /* Style for the user's name */
+  .user-name {
+    font-size: 18px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the name bold */
+    color: #333; /* Set the color of the name */
+    text-align: center; /* Center align the name */
+  }
+  

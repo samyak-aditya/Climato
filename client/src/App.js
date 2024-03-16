@@ -13,7 +13,7 @@ function App() {
   return (
     <div className='bg-black '>
     
-    <BrowserRouter>
+    
       <Routes>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>I
@@ -23,7 +23,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/learn" element={<Learning />}></Route>
       </Routes>
-    </BrowserRouter>
+    
     </div>
   );
 }
