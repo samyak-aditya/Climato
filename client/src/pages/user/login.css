@@ -1,6 +1,7 @@
+
 .container {
     display: flex;
-    height: 100vh;
+    
   }
   
   .left-column {
@@ -18,10 +19,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    left:15vw;
+    height: 90.8vh;
+    
   }
   
   .form-container {
-    width: 300px;
+    width: 400px;
     padding: 20px;
     border-radius: 5px;
   }
@@ -68,14 +73,16 @@
     width:22vw;
     height: 5vh;
     padding: 10px;
-    background-color: #FAF3DD;
-    color: black;
+    background-color: #f6df92;
+    color: rgb(0, 0, 0);
     font-size: larger;
     font-weight: 800;
     border: none;
     border-radius: 5px;
     border-radius: 10px;
     cursor: pointer;
+    z-index: 6;
+    
   }
   
   .link-container {
@@ -93,3 +100,15 @@
     margin-right: 0;
   }
   
+
+  .but{
+     /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    
+  }

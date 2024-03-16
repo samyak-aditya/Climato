@@ -1,11 +1,28 @@
 .grid-item1{
     background-color: brown;
+
 }
 
 .grid-item2 {
     background-color: rgb(212, 226, 19);
     grid-column: span 2; /* Make grid item 2 span across 2 columns */
+    background-image: url('https://s3-alpha-sig.figma.com/img/17ff/2649/4a0ccfb7c43ce6442191104372730f01?Expires=1711324800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=F2BzSyjuNIk-p15skJVrTqPcq~m0HthFkb6iNcSyfeCy0Jx2Z6YqalYVChsOPhKjImk8XYmXs6DF5sQTSheZ1QBzi3RTxdI-R0u5VpDlwD526hBTSb7FKMf4RTaPKYfkjyCB-nLhlVYG-TzdeJz5nWBorGm1d90NF~4rHBBlr6FOE8pS5tGO61S5BphQst0~chxLi7Bi7LZf6lHJSAnsWH9cLhy7feJ4Nz-nJS2QJVxSxzrK6Z7Shx-mcgNQ9IYHKET8sYwLMh-ZdHzJB5kdDwXmFoQzjRYdGu9HV1UabPqLQF3VxPpY94Pgd3mUPP27Dqu-83ZyWgPaoC2JkKLYww__');
+    background-size: cover;
+    border-radius: 50px;
+    display: flex;
+    opacity: 0.4;
+   align-items:end;
+   justify-content: start;
+   color: rgb(255, 255, 255);
+   font-size: 70px;
+   
+
 }
+
+
+
+
+
 
 .grid-item3 {
     background-color: rgb(164, 0, 123);
