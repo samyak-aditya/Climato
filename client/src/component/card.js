@@ -1,40 +1,35 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 
 
 const Card = ({ image, read, description }) => {
-        return (
-            // <div className=" cursor-pointer shadow-lg flex flex-wrap  mb-6 rounded-3xl ml-9 w-1/4 bg-slate-400 text-white"  >
-            // {image && <img src={image} className="w-full h-[250px] object-cover rounded-3xl" />}
-            // <div className="p-4 w-[95%] md:w-[300px] ">
-            // <Link to="/read" className="m-0 p-0 text-sm text-white mr-0 ">{read }</Link>
-            //   <p className="text-sm my-2 h-[65px]  ">{description}</p>
-            // </div>
-            // </div>
-            <div className=" flex-col relative justify-between  p-2 w-[100%] md:w-[400px] h-[300px]  my-3 md:my-0 md:mx-3 cursor-pointer hover:bg-black hover:text-white  h-56 rounded-3xl">
+  return (
+    <div className="col-3 p-2 rounded-3xl position-relative" style={{height: "300px"}}>
       
-      <p style={{
-      
-        color: "white",
-        margin: "0",
-        padding: "0",
-        textAlign:"right",
-        position:"absolute",
-        marginTop:"7rem",
-        marginLeft:"2rem",
-        fontSize:"2rem",
-        display: "flex",
-        justifyContent:"space-evenly",
-        alignItems:"center",
-        
-        
+        <p style={{
 
-      }}>{read}</p>
-    
-      
-      <img src={image} className="h-[294px] w-[400px]  rounded-lg"></img>
-      <p className=" mt-4 m-2  w-full text-md bottom-3 left-3 absolute text-white">{description}</p>
+          color: "white",
+          margin: "0",
+          padding: "0",
+          textAlign: "right",
+          position: "absolute",
+          marginTop: "7rem",
+          marginLeft: "2rem",
+          fontSize: "2rem",
+          display: "flex",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+
+
+
+        }}>{read}</p>
+
+
+        <img src={image} className="rounded-3xl h-100 w-100" />
+        <p className=" mt-4 m-2 p-2 text-md bottom-3 left-3 absolute text-white text-wrap">{description}</p>
+   
     </div>
-        );
-      };
+
+  );
+};
 
 export default Card;

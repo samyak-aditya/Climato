@@ -1,23 +1,27 @@
 import jwt from "jsonwebtoken";
-import config from "config";
 const jwtSecret = "asdfgasdfg";
-export default function (req, res, next) {
+
+const auth = (req, res, next) => {
   const token = req.header("x-auth-token");
   if (!token) {
     return res.status(401).json({ msg: "No token, authorization denied" });
   }
+  
   try {
     jwt.verify(token, jwtSecret, (error, decoded) => {
       if (error) {
         return res.status(401).json({ msg: "Token is not valid" });
       } else {
-        req.user = decoded.user;
-        console.log(decoded.user);
+        // Assuming decoded contains the payload directly
+        req.user = decoded;
+        console.log(req.user); // Log decoded payload
         next();
       }
     });
   } catch (err) {
-    console.error("something wrong with auth middleware");
+    console.log(err)
     res.status(500).json({ msg: "Server Error" });
   }
 }
+
+export default auth;

@@ -30,7 +30,11 @@ export const signUp = async (req, res) => {
     console.log("sdf");
     console.log(jwt);
     const token = jwt.sign(payload, jwtSecret);
-    res.json(token);
+    let result = {
+      email:email,
+      token:token
+    } 
+    res.status(201).json(result)
   } catch (err) {
     console.error(err);
     res.status(500).send("Error registering user");
@@ -53,10 +57,6 @@ export const bookrecycle = async (req, res) => {
       pickupTime,
       eWasteType,
       pickupLocation,
-      img: {
-        data: Buffer.from(img.data, 'base64'), // Assuming the image data is sent as base64 string
-        contentType: img.contentType
-      },
       user: req.user.id,
       status: success // Set default status
     });
@@ -67,8 +67,8 @@ export const bookrecycle = async (req, res) => {
     await upuser.save();
     res.json({ booking, success });
   } catch (err) {
-    console.log(err.message);
-    //console.log(req.body);
+    console.error(err.msg)
+    console.log(req.body);
     //console.log(req)
     res.status(500).send("Internal server error");
   }

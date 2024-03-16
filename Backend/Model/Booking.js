@@ -1,4 +1,4 @@
-import { Schema,model } from 'mongoose';
+import { Schema, model } from "mongoose";
 
 const bookingSchema = new Schema({
   user: {
@@ -9,16 +9,10 @@ const bookingSchema = new Schema({
   pickupLocation: { type: String, required: true },
   pickupTime: { type: Date, required: true },
   eWasteType: { type: String, required: true },
-  status:{
-    type:String,
+  status: {
+    type: String,
   },
-    img:
-    {
-        data: Buffer,
-        contentType: String
-    }
-  
 });
 
 const Booking = model("Booking", bookingSchema);
-export default Booking
+export default Booking;
