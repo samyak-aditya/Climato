@@ -41,7 +41,7 @@ function Signup() {
               type="text"
               placeholder="Full name"
               value={name_}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
               className="input"
               required
             />
