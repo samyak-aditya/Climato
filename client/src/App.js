@@ -9,6 +9,8 @@ import NavBar from "./component/navbar.js";
 import { Dashboard } from "./pages/dashboard.js";
 import Recycle from "./pages/user/Recycle.js";
 import History from "./pages/user/History.js";
+import LeaderBoard from "./pages/LeaderBoard.js";
+import Learn from "./pages/Learn.js";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/recycle" element={<Recycle/>}></Route>
         <Route path="/history" element={<History/>}></Route>
+        <Route path="/leaderboard" element={<LeaderBoard/>}></Route>
+        <Route path="/learn" element={<Learn/>}></Route>
       </Routes>
     
     </div>
