@@ -30,7 +30,11 @@ export const signUp = async (req, res) => {
     console.log("sdf");
     console.log(jwt);
     const token = jwt.sign(payload, jwtSecret);
-    res.json(token);
+    let result = {
+      email:email,
+      token:token
+    } 
+    res.status(201).json(result)
   } catch (err) {
     console.error(err);
     res.status(500).send("Error registering user");

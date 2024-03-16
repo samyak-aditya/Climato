@@ -22,7 +22,11 @@ export const login = async (req, res) => {
       return res.status(401).send('Authentication failed');
     }
     const token = jwt.sign({ userId: user._id }, jwtSecret);
-    res.json({ token });
+    let result = {
+      email:email,
+      token:token
+    } 
+    res.status(201).json(result)
   } catch {
     res.status(500).send('Error logging in');
   }
