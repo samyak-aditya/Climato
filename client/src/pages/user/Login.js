@@ -10,14 +10,21 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('/login', {
+      const response = await axios.get('http://localhost:4000/api/login', {
         email: email,
         password: password
+      },{
+          headers: {
+            'Content-Type': 'application/json'
+          }
       });
       console.log('Login successful:', response.data);
+      //localStorage.setItem(token:response.data.token)
+      //if(response.data.st)
       // Add your logic after successful login, such as redirecting to another page
     } catch (error) {
       console.error('Error logging in:', error);
+      //console.log(response.data)
       // Handle login error, such as displaying an error message to the user
     }
   };

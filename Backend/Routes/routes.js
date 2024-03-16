@@ -8,7 +8,7 @@ const router = express.Router();
 router.post("/signup", signUp);
 router.get("/login", login);
 router.get("/bookrecycle",auth, bookrecycle);
-router.get("/getleaderboard",auth, fetchLeaderboard);
+router.get("/getleaderboard", fetchLeaderboard);
 router.get("/cancelrecycle",auth, cancelrecycle);
 
 export default router;

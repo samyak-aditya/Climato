@@ -20,12 +20,6 @@ const userSchema = new Schema({
     type: Number,
     default:0,
   },
-  recycles:{
-    type:[{pickupTime:Date,
-      eWasteType:String,
-      status:String,
-      }],
-  }
 });
 
 
