@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './dashboard.css';
-import { ArrowUpRight } from 'phosphor-react';
+import { ArrowArcLeft, ArrowUpRight } from 'phosphor-react';
 import { Link, useNavigate } from 'react-router-dom';
 import defaultProfilePic from '../assets/propic.png'; // Import your default profile picture
 //import { getCurrentPosition } from 'react-geolocation'; // Import the getCurrentPosition function from your geolocation library
@@ -8,6 +8,7 @@ import defaultProfilePic from '../assets/propic.png'; // Import your default pro
 export const Dashboard = () => {
   const history = useNavigate();
   const [userLocation, setUserLocation] = useState(null);
+  const [show, setShow] = useState(false)
 
   const handleClick1 = () => {
     history('/leaderboard');
@@ -40,7 +41,7 @@ export const Dashboard = () => {
 
   // Function to handle location retrieval errors
   const showError = (error) => {
-    switch(error.code) {
+    switch (error.code) {
       case error.PERMISSION_DENIED:
         alert("User denied the request for Geolocation.");
         break;
@@ -62,33 +63,90 @@ export const Dashboard = () => {
   }, []);
 
   return (
-    <div className="grid-container">
-      <div className="grid-item1">
-        {/* Render default circular profile picture and user's name */}
-        <img src={defaultProfilePic} alt="Profile" className="profile-pic" />
-        <p className="user-name">User's Name</p>
-        {/* Render user's location */}
-        {userLocation && (
-          <p className="user-location">
-            Latitude: {userLocation.latitude}, Longitude: {userLocation.longitude}
-          </p>
-        )}
-      </div>
-      <div className="grid-item2" onClick={handleClick1}>
-        <p className="leader" style={{ position: 'absolute', zIndex: '5' }}>
-          LeaderBoards <ArrowUpRight size={62} />
-        </p>
-      </div>
-      <div className="grid-item3" onClick={handleClick2}>
-        <p className="leader" style={{ position: 'absolute', zIndex: '5' }}>
-          Learn <ArrowUpRight size={62} />
-        </p>
-      </div>
-      <div className="grid-item4" onClick={handleClick3}>
-        <p className="leader" style={{ position: 'absolute', zIndex: '5' }}>
-          Browse Ecozone <ArrowUpRight size={62} />
-        </p>
+    <div className='d-flex'>
+
+
+
+      <div className='p-3 w-100'>
+
+        <div className='text-white d-flex bg-dark rounded-3xl justify-content-between px-3 mb-3 mx-2' style={{ height: "8vh" }}>
+
+          <button className='d-flex align-items-center' onClick={() => setShow(prev => !prev)}>
+            {!show ? <img src="https://cdn1.iconfinder.com/data/icons/heroicons-ui/24/menu-512.png" width={50} />
+              : <ArrowArcLeft size={50} />}
+          </button>
+
+          <div className='h3 align-self-center m-0 p-0'>
+            Climato
+          </div>
+
+          <div className='d-flex align-items-center'>
+            <img src="https://img.freepik.com/premium-photo/cartoon-game-avatar-logo-gaming-brand_902820-467.jpg" width={50} className='rounded-circle' />
+          </div>
+        </div>
+
+
+        <div className='d-flex'>
+
+
+          {show && <div className='bg-dark m-3 text-white h4 d-flex flex-column rounded-3xl'>
+
+            <div className='my-auto p-5'>Learn</div>
+            <div className='my-auto p-5'>Ecozones</div>
+            <div className='my-auto p-5'>Dashboard</div>
+            <div className='my-auto p-5'>Leaderboards</div>
+            <div className='my-auto p-5'>Rewards</div>
+            <div className='my-auto p-5'>Settings</div>
+          </div>}
+
+          <div className='w-100'>
+
+
+            <div className='d-flex'>
+              <div className='col-4 p-3 rounded-3xl'>
+                <div className="grid-item1 p-2 rounded-3xl bg-dark text-white d-flex flex-column align-items-center h-100 justify-content-center" style={{ height: "40vh" }}>
+                  <img src={defaultProfilePic} alt="Profile" className="profile-pic" />
+                  <br/>
+                  <p className="text-white h2 fw-normal">Hi, Sahil</p>
+                  <br/>
+                  {userLocation && (
+                    <p className="user-location">
+                      Latitude: {userLocation.latitude}, Longitude: {userLocation.longitude}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className='col-8 p-3 rounded-3xl'>
+                <div className="grid-item2 p-2" style={{ height: "40vh" }} onClick={handleClick1}>
+                  <p className="leader" style={{ position: 'absolute', zIndex: '5' }}>
+                    LeaderBoards <ArrowUpRight size={62} />
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <div className='d-flex'>
+              <div className='col-3 p-3 rounded-3xl'>
+                <div className="grid-item3 rounded-3xl" style={{ height: "40vh" }} onClick={handleClick2}>
+                  <p className="leader" style={{ position: 'absolute', zIndex: '5' }}>
+                    Learn <ArrowUpRight size={62} />
+                  </p>
+                </div>
+              </div>
+              <div className='col-9 p-3 rounded-3xl'>
+                <div className="grid-item4" style={{ height: "40vh" }} onClick={handleClick3}>
+                  <p className="leader" style={{ position: 'absolute', zIndex: '5' }}>
+                    Browse Ecozone <ArrowUpRight size={62} />
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
   );
 };
