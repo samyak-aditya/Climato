@@ -46,20 +46,30 @@ export const fetchLeaderboard=async(req,res)=> {
   }
 }
 export const bookrecycle = async (req, res) => {
-  const { pickupTime, eWasteType } = req.body;
-  let success = false;
+  const { pickupTime, eWasteType, pickupLocation, img } = req.body;
+  let success = "E-Waste Recycler Is On The Way";
   try {
     const booking = new Booking({
       pickupTime,
       eWasteType,
+      pickupLocation,
+      img: {
+        data: Buffer.from(img.data, 'base64'), // Assuming the image data is sent as base64 string
+        contentType: img.contentType
+      },
       user: req.user.id,
+      status: success // Set default status
     });
-     await booking.save();
+    await booking.save();
     success = true;
-    req.user.ecoscore+=10;
-    res.json({ booking,success });
+    let upuser=req.user;
+    upuser.climatoscore+=10;
+    await upuser.save();
+    res.json({ booking, success });
   } catch (err) {
     console.log(err.message);
+    //console.log(req.body);
+    //console.log(req)
     res.status(500).send("Internal server error");
   }
 }
