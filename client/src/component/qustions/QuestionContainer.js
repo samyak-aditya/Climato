@@ -90,7 +90,7 @@ const QuestionContainer = () => {
             {currentQuestionIndex === questionnaire.length && (
                 <p>All questions answered. Thank you!</p>
             )}
-            <button className='button' onClick={() => navigate('/landing')}>Skip</button>
+            <button className='button1' onClick={() => navigate('/landing')}>Skip</button>
         </div>
     );
 };
