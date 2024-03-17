@@ -1,12 +1,13 @@
-
 import React, { useState } from 'react';
 import axios from 'axios';
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.png';
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
   const [name_, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // Changed variable name
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -16,8 +17,10 @@ function Signup() {
         email: email,
         password: password
       });
+      
       console.log('Signup successful:', response.data);
-      // Add your logic after successful signup, such as redirecting to another page
+      // Redirect to dashboard after successful signup
+      navigate('/dashboard');
     } catch (error) {
       console.error('Error signing up:', error);
       // Handle signup error, such as displaying an error message to the user
@@ -51,6 +54,7 @@ function Signup() {
                     onChange={(e) => setName(e.target.value)}
                     className="input"
                     required
+                    style={{color: 'black', fontWeight: 'bolder'}}
                   />
                   <input
                     type="email"
@@ -59,8 +63,8 @@ function Signup() {
                     onChange={(e) => setEmail(e.target.value)}
                     className="input"
                     required
+                    style={{color: 'black', fontWeight: 'bolder'}}
                   />
-
                   <input
                     type="password"
                     placeholder="Password"
@@ -68,6 +72,7 @@ function Signup() {
                     onChange={(e) => setPassword(e.target.value)}
                     className="input"
                     required
+                    style={{color: 'black', fontWeight: 'bolder'}}
                   />
                   <div className="checkbox-container">
                     <input type="checkbox" id="remember" className="checkbox" />
@@ -75,9 +80,7 @@ function Signup() {
                       Remember me
                     </label>
                   </div>
-                  <button type="submit" className="button">
-                    Sign In
-                  </button>
+                  <button type="submit" className="button">Sign In</button> {/* Corrected button markup */}
                   <div className="link-container">
                     <a href="#" className="link">
                       Forgot password?

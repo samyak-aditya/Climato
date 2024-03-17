@@ -1,34 +1,23 @@
-import { ArrowArcLeft } from 'phosphor-react'
+import { ArrowArcLeft, CheckCircle, XCircle } from 'phosphor-react'
 import React, { useState } from 'react'
-import Card from '../component/card';
-import trash from '../assets/earth (4).png'
-import blog1 from '../assets/blog-card-2.png'
-import blog2 from '../assets/blog-card-3.png'
-import blog3 from '../assets/blog-card-5.png'
-import blog4 from '../assets/blog-card-6.png'
+import img1 from '../assets/earth.png'; // Import your default profile picture
 import { useNavigate } from 'react-router-dom';
-function Learn() {
+
+function History() {
     const [show, setShow] = useState(false)
     const navigate = useNavigate()
 
-    const blogs = [
-        { "image": blog1, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": blog2, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": blog3, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": blog4, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": blog1, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": trash, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": trash, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": trash, desc: "How to navigate in the modern world & manage e-waste" }
-    ]
+    const histories = [
+        { title: "Old mobile phone", subtitle: "iPhone 12", date: "17th March", approved: true },
+        { title: "Broken laptop", subtitle: "MacBook Pro", date: "16th March", approved: false },
+        { title: "Mouse", subtitle: "Hp", date: "19th February", approved: true },
+        { title: "Tech accessories", subtitle: "AirPods Pro", date: "20th January", approved: false }
+    ];
+    
 
     return (
         <div className='d-flex'>
-
-
-
             <div className='p-3 w-100'>
-
                 <div className='text-white d-flex bg-dark rounded-3xl justify-content-between px-3 mb-3 mx-2' style={{ height: "8vh" }}>
 
                     <button className='d-flex align-items-center' onClick={() => setShow(prev => !prev)}>
@@ -59,11 +48,21 @@ function Learn() {
                         <div className='my-auto p-5' onClick={() => navigate('/history')}>Settings</div>
                     </div>}
 
-                    <div className='bg-dark w-100 p-5 m-3 rounded-3xl d-flex flex-wrap' style={{ minHeight: "92vh" }}>
-                        {blogs?.map(item => <Card
-                            image={item.image}
-                            description={item.desc}
-                        />)}
+                    <div className='bg-dark w-100 p-5 m-3 rounded-3xl' style={{ minHeight: "92vh" }}>
+                        {
+                            histories?.map((item, idx) => <div key={idx} className='border rounded-3xl p-4 my-3 d-flex justify-content-between align-items-center'>
+                                <img src={"https://picsum.photos/200/200?id=" + idx} width={100} className='rounded-3xl' />
+
+                                <div className='flex-fill m-3 text-white'>
+                                    <h3 className='h3'>{item.title}</h3>
+                                    <h4 className='h5 opacity-50'>{item.subtitle}</h4>
+                                    <h4 className='opacity-50'>{item.date}</h4>
+                                </div>
+
+                                {item.approved ? <CheckCircle className='text-success' size={50} />
+                                    : <XCircle className='text-danger' size={50} />}
+                            </div>)
+                        }
                     </div>
                 </div>
             </div>
@@ -71,4 +70,4 @@ function Learn() {
     )
 }
 
-export default Learn
+export default History
