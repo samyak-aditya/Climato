@@ -2,9 +2,12 @@ import { ArrowArcLeft, Camera } from 'phosphor-react'
 import React, { useState } from 'react'
 import Card from '../component/card';
 import trash from '../assets/earth (4).png'
+import { useNavigate } from 'react-router-dom';
+
 
 function OrderForm() {
     const [show, setShow] = useState(false)
+    const navigate = useNavigate()
 
     return (
         <div className='d-flex'>
@@ -35,12 +38,12 @@ function OrderForm() {
 
                     {show && <div className='bg-dark m-3 text-white h4 d-flex flex-column rounded-3xl'>
 
-                        <div className='my-auto p-5'>Learn</div>
-                        <div className='my-auto p-5'>Ecozones</div>
-                        <div className='my-auto p-5'>Dashboard</div>
-                        <div className='my-auto p-5'>Leaderboards</div>
-                        <div className='my-auto p-5'>Rewards</div>
-                        <div className='my-auto p-5'>Settings</div>
+                    <div className='my-auto p-5' onClick={() => navigate('/learn')}>Learn</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/order')}>Ecozones</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/dashboard')}>Dashboard</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/leaderboard')}>Leaderboards</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/reward')}>Rewards</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/history')}>Settings</div>
                     </div>}
 
                     <div className='bg-dark w-100 p-5 m-3 rounded-3xl d-flex flex-wrap' style={{ minHeight: "92vh" }}>

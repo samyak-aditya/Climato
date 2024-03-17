@@ -9,9 +9,10 @@ const login = () => {
         display: 'grid',
         gridTemplateColumns: { sm: '1fr 1fr' },
         gap: 2,
+        color: 'black',
       }}
     >
-      <CssTextField label="Custom CSS" id="custom-css-outlined-input" />
+      <CssTextField label="Custom CSS"  id="custom-css-outlined-input" />
       <ValidationTextField
         label="CSS validation style"
         required

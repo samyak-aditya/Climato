@@ -2,10 +2,12 @@ import logo from '../../assets/logo.png';
 import React, { useState } from 'react';
 import axios from 'axios';
 import './login.css'
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate()
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -49,6 +51,7 @@ function Login() {
                     onChange={(e) => setEmail(e.target.value)}
                     className="input"
                     required
+                    style={{color: 'black', fontWeight: 'bolder'}}
                   />
                   <input
                     type="password"
@@ -57,6 +60,7 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     className="input"
                     required
+                    style={{color: 'black', fontWeight: 'bolder'}}
                   />
                   <div className="checkbox-container">
                     <input type="checkbox" id="remember" className="checkbox" />
@@ -65,7 +69,7 @@ function Login() {
                     </label>
                   </div>
 
-                  <button type="submit" className="but">
+                  <button type="submit" className="but" >
                     <div className="button">
                       Sign In
                     </div>

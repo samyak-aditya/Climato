@@ -7,6 +7,7 @@ import defaultProfilePic from '../assets/propic.png'; // Import your default pro
 
 export const Dashboard = () => {
   const history = useNavigate();
+  const navigate = useNavigate()
   const [userLocation, setUserLocation] = useState(null);
   const [show, setShow] = useState(false)
 
@@ -91,12 +92,12 @@ export const Dashboard = () => {
 
           {show && <div className='bg-dark m-3 text-white h4 d-flex flex-column rounded-3xl'>
 
-            <div className='my-auto p-5'>Learn</div>
-            <div className='my-auto p-5'>Ecozones</div>
-            <div className='my-auto p-5'>Dashboard</div>
-            <div className='my-auto p-5'>Leaderboards</div>
-            <div className='my-auto p-5'>Rewards</div>
-            <div className='my-auto p-5'>Settings</div>
+           <div className='my-auto p-5' onClick={() => navigate('/learn')}>Learn</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/order')}>Ecozones</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/dashboard')}>Dashboard</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/leaderboard')}>Leaderboards</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/reward')}>Rewards</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/history')}>Settings</div>
           </div>}
 
           <div className='w-100'>

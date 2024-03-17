@@ -1,5 +1,6 @@
 import { ArrowArcLeft } from 'phosphor-react'
 import React, { useState } from 'react'
+import { useNavigate ,Link} from 'react-router-dom';
 import Card from '../component/card';
 import trash from '../assets/earth (4).png'
 import blog1 from '../assets/blog-card-2.png'
@@ -9,6 +10,7 @@ import blog4 from '../assets/blog-card-6.png'
 
 function Reward() {
     const [show, setShow] = useState(false)
+    const navigate = useNavigate()
 
     const blogs = [
         { "image": blog1, desc: "How to navigate in the modern world & manage e-waste" },
@@ -25,6 +27,7 @@ function Reward() {
         <div className='d-flex'>
             <div className='p-3 w-100'>
                 <div className='text-white d-flex bg-dark rounded-3xl justify-content-between px-3 mb-3 mx-2' style={{ height: "8vh" }}>
+                    
                     <button className='d-flex align-items-center' onClick={() => setShow(prev => !prev)}>
                         {!show ? <img src="https://cdn1.iconfinder.com/data/icons/heroicons-ui/24/menu-512.png" width={50} />
                             : <ArrowArcLeft size={50} />}
@@ -38,14 +41,16 @@ function Reward() {
                 </div>
                 <div className='d-flex'>
                     {show && <div className='bg-dark m-3 text-white h4 d-flex flex-column rounded-3xl'>
-                        <div className='my-auto p-5'>Learn</div>
-                        <div className='my-auto p-5'>Ecozones</div>
-                        <div className='my-auto p-5'>Dashboard</div>
-                        <div className='my-auto p-5'>Leaderboards</div>
-                        <div className='my-auto p-5'>Rewards</div>
-                        <div className='my-auto p-5'>Settings</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/learn')}>Learn</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/order')}>Ecozones</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/dashboard')}>Dashboard</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/leaderboard')}>Leaderboards</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/reward')}>Rewards</div>
+                        <div className='my-auto p-5' onClick={() => navigate('/history')}>Settings</div>
                     </div>}
+                    
                     <div className='bg-dark w-100 p-5 m-3 rounded-3xl d-flex flex-wrap' style={{ minHeight: "92vh" }}>
+                    
                         {blogs?.map(item => <Card
                             image={item.image}
                             description={item.desc}
@@ -54,9 +59,7 @@ function Reward() {
                 </div>
             </div>
             {/* Static Slider Input Range */}
-            <div style={{ width: '200px', marginTop: '50px' }}>
-                <input type="range" min="0" max="100" value="50" className="slider" style={{ width: '100%' }} />
-            </div>
+            
         </div>
     )
 }
