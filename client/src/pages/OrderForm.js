@@ -9,6 +9,16 @@ function OrderForm() {
     const [show, setShow] = useState(false)
     const navigate = useNavigate()
 
+    const handleCreateOrder = () => {
+        // Show alert message
+        alert('Your order is successful!');
+        
+        // Redirect to dashboard after 4 seconds
+        
+            navigate('/dashboard');
+        
+    };
+
     return (
         <div className='d-flex'>
 
@@ -80,7 +90,7 @@ function OrderForm() {
                                     <option value={"Collection 1"} className='text-dark'>Pickup</option>
                                     <option value={"Collection 2"} className='text-dark'>Self Drop</option>
                                 </select>
-                                <button className='text-white border w-25 p-2 rounded-3xl'>Create Order</button>
+                                <button className='text-white border w-25 p-2 rounded-3xl' onClick={handleCreateOrder}>Create Order</button>
                             </div>
                         </form>
                     </div>
