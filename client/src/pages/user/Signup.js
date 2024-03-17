@@ -80,7 +80,7 @@ function Signup() {
                       Remember me
                     </label>
                   </div>
-                  <button type="submit" className="button">Sign In</button> {/* Corrected button markup */}
+                  <button type="submit" className="button" onClick={() => navigate('/dashboard')}>Sign up</button> {/* Corrected button markup */}
                   <div className="link-container">
                     <a href="#" className="link">
                       Forgot password?
