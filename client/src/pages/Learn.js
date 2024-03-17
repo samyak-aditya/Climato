@@ -2,24 +2,28 @@ import { ArrowArcLeft } from 'phosphor-react'
 import React, { useState } from 'react'
 import Card from '../component/card';
 import trash from '../assets/earth (4).png'
+import blog5 from '../assets/light.jpg'
 import blog1 from '../assets/blog-card-2.png'
 import blog2 from '../assets/blog-card-3.png'
 import blog3 from '../assets/blog-card-5.png'
 import blog4 from '../assets/blog-card-6.png'
+import blog6 from '../assets/pexels-tom-fisk-3174350.jpg'
+import blog11 from '../assets/iamnot.png'
+
 import { useNavigate } from 'react-router-dom';
 function Learn() {
     const [show, setShow] = useState(false)
     const navigate = useNavigate()
 
     const blogs = [
-        { "image": blog1, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": blog2, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": blog3, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": blog4, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": blog1, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": trash, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": trash, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": trash, desc: "How to navigate in the modern world & manage e-waste" }
+        { "image": blog1, desc: "How to generate money from selling your scrap" },
+        { "image": blog2, desc: "How to navigate in the modern world and manage e-waste" },
+        { "image": blog3, desc: "How to recycle ypur old tv to make a quick buck" },
+        { "image": blog4, desc: "Did you know about e-waste and it's harmful effects" },
+        { "image": blog11, desc: "How much e-waste india generate?" },
+        { "image": blog5, desc: "How to we process your e-waste" },
+        { "image": trash, desc: "Market size of e-waste" },
+        { "image": blog4, desc: "How to get rid of your old phone in 2024" }
     ]
 
     return (

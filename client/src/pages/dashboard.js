@@ -20,7 +20,7 @@ export const Dashboard = () => {
   };
 
   const handleClick3 = () => {
-    history('/Learn');
+    history('/order');
   };
 
   // Function to get user's location

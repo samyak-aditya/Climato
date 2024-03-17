@@ -69,7 +69,7 @@ function Login() {
                     </label>
                   </div>
 
-                  <button type="submit" className="but" >
+                  <button type="submit" className="but"  onClick={() => navigate('/dashboard')}>
                     <div className="button">
                       Sign In
                     </div>

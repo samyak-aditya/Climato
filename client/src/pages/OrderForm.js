@@ -59,21 +59,19 @@ function OrderForm() {
                                 <input placeholder='Product Name' className='w-75 p-2 bg-transparent text-white border rounded-3xl px-4 my-3' />
                                 <select placeholder='Category' className='w-75 p-2 bg-transparent text-white border rounded-3xl px-4 my-3'>
                                     <option selected disabled className='text-dark'>Select Category</option>
-                                    <option value={"category 1"} className='text-dark'>Category 1</option>
-                                    <option value={"category 2"} className='text-dark'>Category 2</option>
-                                    <option value={"category 3"} className='text-dark'>Category 3</option>
-                                    <option value={"category 4"} className='text-dark'>Category 4</option>
-                                    <option value={"category 5"} className='text-dark'>Category 5</option>
-                                    <option value={"category 6"} className='text-dark'>Category 6</option>
+                                    <option value={"category 1"} className='text-dark'>Smartphone</option>
+                                    <option value={"category 2"} className='text-dark'>Televisions</option>
+                                    <option value={"category 3"} className='text-dark'>Laptops</option>
+                                    <option value={"category 4"} className='text-dark'>Desktops</option>
+                                    <option value={"category 5"} className='text-dark'>Other Electronic items</option>
+                                    
                                 </select>
                                 <select placeholder='Collection' className='w-75 p-2 bg-transparent text-white border rounded-3xl px-4 my-3'>
                                     <option selected disabled className='text-dark'>Select Collection Type</option>
-                                    <option value={"Collection 1"} className='text-dark'>Collection 1</option>
-                                    <option value={"Collection 2"} className='text-dark'>Collection 2</option>
-                                    <option value={"Collection 3"} className='text-dark'>Collection 3</option>
-                                    <option value={"Collection 4"} className='text-dark'>Collection 4</option>
-                                    <option value={"Collection 5"} className='text-dark'>Collection 5</option>
-                                    <option value={"Collection 6"} className='text-dark'>Collection 6</option>
+                                    <option value={"Collection 1"} className='text-dark'>Fully working</option>
+                                    <option value={"Collection 2"} className='text-dark'>Semi-working</option>
+                                    <option value={"Collection 3"} className='text-dark'>Not working</option>
+                                    
                                 </select>
                                 <input placeholder='Ask price' className='w-75 p-2 bg-transparent text-white border rounded-3xl px-4 my-3' />
                                 <input placeholder='Pincode' className='w-75 p-2 bg-transparent text-white border rounded-3xl px-4 my-3' />

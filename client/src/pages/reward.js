@@ -7,20 +7,29 @@ import blog1 from '../assets/blog-card-2.png'
 import blog2 from '../assets/blog-card-3.png'
 import blog3 from '../assets/blog-card-5.png'
 import blog4 from '../assets/blog-card-6.png'
+import blog5 from '../assets/blog-card-44.png'
+import blog6 from '../assets/aa (1).png'
+import blog7 from '../assets/cc.png'
+import blog8 from '../assets/bb.png'
+import blog9 from '../assets/garbage.png'
+import blog10 from '../assets/woods.png'
+import blog11 from '../assets/iamnot.png'
+
+
 
 function Reward() {
     const [show, setShow] = useState(false)
     const navigate = useNavigate()
 
     const blogs = [
-        { "image": blog1, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": blog2, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": blog3, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": blog4, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": blog1, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": trash, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": trash, desc: "How to navigate in the modern world & manage e-waste" },
-        { "image": trash, desc: "How to navigate in the modern world & manage e-waste" }
+        { "image": blog9, desc: "GREEN LEARNER" },
+        { "image": blog10, desc: "RECYCLE RANGER" },
+        { "image": blog5, desc: "ECO SERGEANT" },
+        { "image": blog9, desc: "E-WARRIOR" },
+        { "image": blog5, desc: "ECO CAMPION" },
+        { "image": blog6, desc: "PLANET PROTECTOR" },
+        { "image": blog7, desc: "DISCIPLE" },
+        { "image": blog8, desc: "SAGE" }
     ]
 
     return (
