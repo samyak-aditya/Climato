@@ -80,7 +80,8 @@ function Signup() {
                       Remember me
                     </label>
                   </div>
-                  <button type="submit" className="button" onClick={() => navigate('/dashboard')}>Sign up</button> {/* Corrected button markup */}
+                  <button type="submit" className="button" style={{ background: '#fff', color: 'black' }} onClick={() => navigate('/dashboard')}>Sign up</button>
+
                   <div className="link-container">
                     <a href="#" className="link">
                       Forgot password?
