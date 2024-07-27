@@ -5,7 +5,7 @@ import { connect } from "mongoose";
 
 const connectDB = async () => {
   try {
-    await connect('mongodb+srv://Samyak:Cyber10@cluster0.t5hemdi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'),{
+    await connect(process.env.MONGO_URL),{
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }
